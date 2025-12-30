@@ -1,6 +1,6 @@
 # OpenCode Skills
 
-OpenCode agents for disciplined Rust/WebAssembly development. A port of [terraphim-claude-skills](https://github.com/terraphim/claude-skills) for [OpenCode](https://opencode.ai).
+OpenCode skills for disciplined Rust/WebAssembly development. Compatible with both [OpenCode](https://opencode.ai) and [Claude Code](https://claude.ai/code).
 
 ## Installation
 
@@ -10,38 +10,37 @@ OpenCode agents for disciplined Rust/WebAssembly development. A port of [terraph
 # Clone the repository
 git clone https://github.com/terraphim/opencode-skills.git
 
-# Copy agents to global config
-cp -r opencode-skills/agent/* ~/.config/opencode/agent/
+# Copy skills to global config
+cp -r opencode-skills/skill/* ~/.config/opencode/skill/
 ```
 
 ### Per-Project Installation
 
 ```bash
-# Clone into your project
-git clone https://github.com/terraphim/opencode-skills.git
-
 # Copy to project's .opencode directory
-mkdir -p .opencode/agent
-cp -r opencode-skills/agent/* .opencode/agent/
+mkdir -p .opencode/skill
+cp -r opencode-skills/skill/* .opencode/skill/
+```
+
+### Claude Code Compatibility
+
+OpenCode also supports Claude-compatible paths:
+
+```bash
+# Works with .claude/skills/ path
+mkdir -p .claude/skills
+cp -r opencode-skills/skill/* .claude/skills/
 ```
 
 ## Usage
 
-Invoke agents using the `@` syntax:
+Skills are automatically discovered and available to agents. The agent sees the skill name and description, and invokes them on-demand.
 
-```
-@disciplined-research Help me understand this codebase
-@code-review Review this pull request
-@rust-performance Optimize this hot path
-```
-
-Switch between primary agents with `Tab`.
-
-## Available Agents (27)
+## Available Skills (28)
 
 ### Disciplined Development (V-Model)
 
-| Agent | Phase | Description |
+| Skill | Phase | Description |
 |-------|-------|-------------|
 | `disciplined-research` | 1 | Deep problem understanding before design |
 | `disciplined-design` | 2 | Create implementation plans from research |
@@ -52,7 +51,7 @@ Switch between primary agents with `Tab`.
 
 ### Core Development
 
-| Agent | Description |
+| Skill | Description |
 |-------|-------------|
 | `architecture` | System design, ADRs, API planning (no code) |
 | `implementation` | Production-ready code with tests |
@@ -61,14 +60,14 @@ Switch between primary agents with `Tab`.
 
 ### Rust Expertise
 
-| Agent | Description |
+| Skill | Description |
 |-------|-------------|
 | `rust-development` | Idiomatic Rust patterns and ecosystem |
 | `rust-performance` | Profiling, benchmarking, optimization |
 
 ### Quality & Security
 
-| Agent | Description |
+| Skill | Description |
 |-------|-------------|
 | `code-review` | Bug, security, performance feedback |
 | `security-audit` | Vulnerability assessment, unsafe code review |
@@ -79,7 +78,7 @@ Switch between primary agents with `Tab`.
 
 ### Documentation & DevOps
 
-| Agent | Description |
+| Skill | Description |
 |-------|-------------|
 | `documentation` | API docs, README, guides |
 | `md-book` | MD-Book documentation sites |
@@ -87,14 +86,14 @@ Switch between primary agents with `Tab`.
 
 ### Open Source
 
-| Agent | Description |
+| Skill | Description |
 |-------|-------------|
 | `open-source-contribution` | Quality PRs, good issues |
 | `community-engagement` | Release notes, contributor engagement |
 
 ### Terraphim Integration
 
-| Agent | Description |
+| Skill | Description |
 |-------|-------------|
 | `terraphim-hooks` | Knowledge graph text replacement |
 | `session-search` | AI session history search |
@@ -102,9 +101,20 @@ Switch between primary agents with `Tab`.
 
 ### Desktop UI
 
-| Agent | Description |
+| Skill | Description |
 |-------|-------------|
 | `gpui-components` | GPUI components (Zed patterns) |
+
+### Infrastructure
+
+| Skill | Description |
+|-------|-------------|
+| `1password-secrets` | 1Password CLI secret management |
+| `caddy` | Caddy server configuration |
+
+## Related
+
+- [terraphim/claude-skills](https://github.com/terraphim/claude-skills) - Claude Code plugin version
 
 ## License
 
